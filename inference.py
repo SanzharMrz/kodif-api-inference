@@ -63,10 +63,12 @@ model_num_classes = list(zip(models_path, [2, 2, 12, 2, 4, 2]))
 tokenizer = AutoTokenizer.from_pretrained('bert-base-uncased', do_lower_case=True)
 device = torch.device('cpu')
 
+# this stage takes a lot of time, shall be outside of api's predict method
 first_model, second_model, third_model, fourth_b_model, fourth_a_model, fourth_c_model = [get_objects(n_cl, path) 
                                                                                           for path, n_cl in model_num_classes]
 
 
+# main method which takes a text and produces prediction as a text
 def chain(text):
     # stage 1
     first_level_prediction = predict(first_model, text, first)
