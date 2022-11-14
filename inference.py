@@ -11,6 +11,7 @@ import transformers
 from transformers import (AutoTokenizer, AutoModel)
 
 from constants import (first, second, third, fourth_a, fourth_b, fourth_c)
+from parsing import parse_text
 
 import warnings
 warnings.simplefilter('ignore')
@@ -70,6 +71,9 @@ first_model, second_model, third_model, fourth_b_model, fourth_a_model, fourth_c
 
 # main method which takes a text and produces prediction as a text
 def chain(text):
+    # if you have any option please substitute this function
+    text = parse_text(text)
+    
     # stage 1
     first_level_prediction = predict(first_model, text, first)
     if first_level_prediction == 'tracking_information':
