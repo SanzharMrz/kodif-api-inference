@@ -11,5 +11,6 @@ Then we alternately call [```predict```](https://github.com/SanzharMrz/kodif-api
 # Usage
 ```bash
 $ sh get_models.sh # download weights
+$ pip install -r requirements.txt
 $ python inference.py
 ```
