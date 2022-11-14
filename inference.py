@@ -99,7 +99,4 @@ def chain(text):
     return response
 
 
-
-
 chain('i need to refund some money bitch')
-
